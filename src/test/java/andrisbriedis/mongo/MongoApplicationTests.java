@@ -48,11 +48,9 @@ public class MongoApplicationTests {
                 .findById(account.id())
                 .orElseThrow(this::noAcount);
         sameAccount.deposit(BigDecimal.TEN);
-
-        account = accountRepository.save(account);
-        assertEquals(BigDecimal.ONE, account.balance());
-
         accountRepository.save(sameAccount);
+
+        accountRepository.save(account);
     }
 
     private AssertionError noAcount() {
