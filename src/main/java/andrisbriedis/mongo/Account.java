@@ -1,6 +1,7 @@
 package andrisbriedis.mongo;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.index.Indexed;
 
 import java.math.BigDecimal;
@@ -13,6 +14,9 @@ class Account {
     private String owner;
 
     private BigDecimal balance = BigDecimal.ZERO;
+
+    @Version
+    private Long version;
 
     Account(String owner) {
         this.owner = owner;
